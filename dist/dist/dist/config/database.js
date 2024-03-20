@@ -1,0 +1,34 @@
+"use strict";
+
+require('dotenv').config();
+var _require = require('mongodb'),
+  MongoClient = _require.MongoClient,
+  ServerApiVersion = _require.ServerApiVersion;
+var uri = process.env.MONGODB_URL;
+// Create a MongoClient with a MongoClientOptions object to set the Stable API version
+var client = new MongoClient(uri, {
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true
+  }
+});
+
+// async function runMongoConnection() {
+//   try {
+
+//     await client.connect();
+//     await client.db("admin").command({ ping: 1 });
+
+//     console.log("Pinged your deployment. You successfully connected to MongoDB!");
+
+//     return client;
+//   }
+//   catch(error) 
+//   {
+//     console.error("Failed to connect to MongoDB:", error);
+//     throw error; // 
+//   }
+// }
+
+module.exports = client;

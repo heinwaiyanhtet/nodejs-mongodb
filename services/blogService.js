@@ -1,5 +1,11 @@
+const { Container, injectable } = require('inversify');
+
+require("reflect-metadata");
+
 const BlogRepository = require('../repositories/blogRepository');
 
+
+// @injectable()
 class BlogService {
 
   constructor(blogRepository) {
