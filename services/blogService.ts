@@ -1,16 +1,16 @@
-import { Container, injectable } from 'inversify';
+import { Container, inject, injectable } from 'inversify';
 
 require("reflect-metadata");
 
-import BlogRepository = require('../repositories/blogRepository');
+import BlogRepository from'../repositories/blogRepository';
 
 
-// @injectable()
+@injectable()
 class BlogService {
   
-  blogRepository: any;
+  blogRepository: BlogRepository;
 
-  constructor(blogRepository: any) {
+  constructor(@inject('BlogRepository') blogRepository: BlogRepository) {
     this.blogRepository = blogRepository;
   }
 

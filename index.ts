@@ -2,10 +2,13 @@
 import connectToDatabase from './config/database';
 import  createBlog  from './controllers/blogController';
 import container  from "./container";
+import BlogService from './services/blogService';
 
 async function displayAllBlogs() {
 
-    const blogService = container.get('BlogService');
+    console.log("Blog Service");
+
+    const blogService = container.get<BlogService>('BlogService');
 
     console.log(blogService);
     
@@ -27,7 +30,7 @@ async function run() {
 
     await connectToDatabase.connect();
 
-    // await displayAllBlogs();
+    await displayAllBlogs();
 
 
     // await createBlog("My First Blog", "This is the content of my first blog.");
@@ -35,7 +38,9 @@ async function run() {
     // await client.close();
 
   } catch (error) {
-    console.error("Failed to run the application:", error);
+
+    console.error(error);
+
   }
 
   
