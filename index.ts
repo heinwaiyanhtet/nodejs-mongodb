@@ -23,6 +23,7 @@ async function run() {
   // await connectToDatabase();
 
   try {
+    // npx ts-node index.ts
 
     await connectToDatabase.connect();
 
