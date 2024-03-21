@@ -1,5 +1,5 @@
-const Blog = require('../models/Blog');
-const renderBlog = require('../views/blogView');
+import Blog from '../models/Blog';
+import renderBlog from '../views/blogView';
 
 async function createBlog(title: any, content: any) {
   try
@@ -8,10 +8,12 @@ async function createBlog(title: any, content: any) {
       await blog.save();
       renderBlog(blog);
 
-  } catch (error) {
+  } 
+  catch (error) {
     console.error(error);
     throw error;
   }
+
 }
 
 export default createBlog;

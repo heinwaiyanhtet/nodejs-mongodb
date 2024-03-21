@@ -33,7 +33,7 @@ async function run() {
     await displayAllBlogs();
 
 
-    // await createBlog("My First Blog", "This is the content of my first blog.");
+    await createBlog("My First Blog", "This is the content of my first blog.");
 
     // await client.close();
 
