@@ -9,16 +9,17 @@ async function displayAllBlogs() {
     console.log("Blog Service");
 
     const blogService = container.get<BlogService>('BlogService');
-
-    console.log(blogService);
     
-    // const blogs = await blogService.getAllBlogs();
+    const blogs = await blogService.getAllBlogs();
 
-    // blogs.forEach((blog) => {
-    //     console.log('---');
-    //     console.log(`Title: ${blog.title}`);
-    //     console.log(`Content: ${blog.content}`);
-    // });
+    blogs.forEach((blog) => {
+
+        console.log('---');
+        console.log(`Title: ${blog.title}`);
+        console.log(`Content: ${blog.content}`);
+        
+    });
+
 }
 
 async function run() {
@@ -30,10 +31,11 @@ async function run() {
 
     await connectToDatabase.connect();
 
+    await createBlog("My First Blog", "This is the content of my first blog.");
+
     await displayAllBlogs();
 
 
-    await createBlog("My First Blog", "This is the content of my first blog.");
 
     // await client.close();
 
