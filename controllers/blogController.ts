@@ -7,11 +7,9 @@ async function createBlog(title: any, content: any) {
 
   try
   {
+      
       const blog = new Blog({ title, content });
-      // console.log("new blog title",title);
-      // console.log("new blog content",content);
       await blog.save();
-      console.log(blog);
       renderBlog(blog);
 
   } 
