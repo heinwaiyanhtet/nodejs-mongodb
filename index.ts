@@ -12,6 +12,8 @@ async function displayAllBlogs() {
     
     const blogs = await blogService.getAllBlogs();
 
+    console.log("blogs reached");
+
     blogs.forEach((blog) => {
 
         console.log('---');
@@ -27,6 +29,7 @@ async function run() {
   // await connectToDatabase();
 
   try {
+
     // npx ts-node index.ts
 
     await connectToDatabase.connect();
@@ -35,9 +38,7 @@ async function run() {
 
     await displayAllBlogs();
 
-
-
-    // await client.close();
+    await connectToDatabase.close();
 
   } catch (error) {
 
